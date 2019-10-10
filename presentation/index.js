@@ -23,6 +23,12 @@ import createTheme from 'spectacle/lib/themes/default';
 
 const images = {
   gitBlame: require('../assets/git-blame.png'),
+  hero: require('../assets/hero.jpg'),
+  gatsby: require('../assets/gatsby-logo.jpg'),
+  cutting: require('../assets/cutting.png'),
+  dataAg: require('../assets/data-ag.png'),
+  deploy: require('../assets/deploy.png'),
+  arch: require('../assets/arch.png'),
   goodWork: require('../assets/good-work.gif'),
 };
 
@@ -45,8 +51,9 @@ const theme = createTheme(
 export default class Presentation extends React.Component {
   render() {
     return (
-      <Deck transition={['zoom', 'slide']} transitionDuration={500} theme={theme}>
-        <Slide transition={['zoom']} bgColor="primary">
+      <Deck transition={['fade']} transitionDuration={500} theme={theme}>
+        <Slide></Slide>
+        <Slide transitionIn={['zoom']} transitionOut={['fade']} bgColor="primary">
           <Text>Hi, I'm</Text>
           <Heading size={1} fit caps lineHeight={1} textColor="tertiary">
             Aravind Balla
@@ -59,22 +66,32 @@ export default class Presentation extends React.Component {
             textSize="1.5rem"
           >{`{twitter|github}.com/aravindballa`}</Text>
         </Slide>
-        <Slide>
+        <Slide transition={['fade']}>
           <Image src={images.gitBlame} width={500} />
         </Slide>
-        <Slide bgColor="tertiary">
+        {/* TODO: Dev jokes */}
+
+        <Slide
+          bgImage={images.hero}
+          bgColor="tertiary"
+          bgDarken="0.7"
+          transitionIn={['zoom']}
+          transitionOut={['fade']}
+        >
           <Heading size={1} fit caps lineHeight={1} textColor="primary">
             Build blazing fast portfolios
           </Heading>
         </Slide>
-        <Slide transition={['fade']}>
-          <Text>Every developer* should have one</Text>
-          <Text margin="30px 0 0 0" textColor="#444" textSize="1.5rem">
-            *You too! 🤷🏻‍♂️
-          </Text>
+        <Slide>
+          <Text>Every developer should have one*</Text>
+          <Appear>
+            <Text margin="30px 0 0 0" textColor="#444" textSize="1.5rem">
+              *You too! 🤷🏻‍♂️
+            </Text>
+          </Appear>
         </Slide>
-        <Slide transition={['fade']}>
-          <Heading size={6} textColor="secondary" caps>
+        <Slide>
+          <Heading size={6} textColor="tertiary" caps>
             Why don't we do it?
           </Heading>
           <List>
@@ -89,8 +106,8 @@ export default class Presentation extends React.Component {
             </Appear>
           </List>
         </Slide>
-        <Slide transition={['fade']}>
-          <Heading size={6} textColor="secondary" caps>
+        <Slide>
+          <Heading size={6} textColor="tertiary" caps>
             Why should you <span style={{ fontStyle: 'italic' }}>actually</span> do it?
           </Heading>
           <List>
@@ -109,7 +126,36 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide>
           <Text>Not just tech, write everything 💁🏻‍♂️</Text>
+          <Appear>
+            <Text margin="20px 0 0 0">(But, where?)</Text>
+          </Appear>
+          <Appear>
+            <Text margin="20px 0 0 0">(And, how?)</Text>
+          </Appear>
         </Slide>
+        <Slide>
+          <Image src={images.gatsby} width={500} />
+        </Slide>
+        <Slide>
+          <Heading size={1} fit lineHeight={1} textColor="secondary">
+            Cutting edge stack
+          </Heading>
+          <Text margin="20px">JAMstack</Text>
+          <Image src={images.cutting} />
+        </Slide>
+        <Slide>
+          <Heading size={1} lineHeight={1} textColor="secondary">
+            Data Agnostic
+          </Heading>
+          <Image src={images.dataAg} />
+        </Slide>
+        <Slide>
+          <Heading size={1} lineHeight={1} textColor="secondary">
+            Easy Deployment
+          </Heading>
+          <Image src={images.deploy} />
+        </Slide>
+        <Slide bgImage={images.arch} />
       </Deck>
     );
   }
