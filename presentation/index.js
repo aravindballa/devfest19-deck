@@ -30,6 +30,10 @@ const images = {
   deploy: require('../assets/deploy.png'),
   arch: require('../assets/arch.png'),
   goodWork: require('../assets/good-work.gif'),
+  notExpert: require('../assets/not-expert.png'),
+  devdas: require('../assets/devdas.gif'),
+  console: require('../assets/console.gif'),
+  brain: require('../assets/brain.gif'),
 };
 
 // Require CSS
@@ -46,6 +50,22 @@ const theme = createTheme(
     primary: 'Avenir Next',
     secondary: 'Helvetica',
   }
+);
+
+const PicCredit = ({ children }) => (
+  <div
+    style={{
+      position: 'fixed',
+      bottom: 40,
+      left: 0,
+      width: '100%',
+      fontSize: '1rem',
+      textAlign: 'center',
+      color: 'rgba(255,255,255,0.3)',
+    }}
+  >
+    {children}
+  </div>
 );
 
 export default class Presentation extends React.Component {
@@ -69,17 +89,40 @@ export default class Presentation extends React.Component {
         <Slide transition={['fade']}>
           <Image src={images.gitBlame} width={500} />
         </Slide>
-        {/* TODO: Dev jokes */}
-
-        <Slide
-          bgImage={images.hero}
-          bgColor="tertiary"
-          bgDarken="0.7"
-          transitionIn={['zoom']}
-          transitionOut={['fade']}
-        >
-          <Heading size={1} fit caps lineHeight={1} textColor="primary">
-            Build blazing fast portfolios
+        {/* Dev jokes */}
+        <Slide>
+          <Heading size={2} fit caps lineHeight={1} textColor="tertiary">
+            What will be the name of the movie on a sad developer?
+          </Heading>
+          <Appear>
+            <Text margin="20px">DEVdas</Text>
+          </Appear>
+          <Appear>
+            <Image src={images.devdas} />
+          </Appear>
+        </Slide>
+        <Slide>
+          <Heading size={2} fit caps lineHeight={1} textColor="tertiary">
+            Where did the parallel function wash its hands?
+          </Heading>
+          <Appear>
+            <Text margin="20px">Async</Text>
+          </Appear>
+        </Slide>
+        <Slide>
+          <Heading size={6} caps lineHeight={1} textColor="tertiary">
+            Why do programmers get confused between Halloween and Christmas?
+          </Heading>
+          <Appear>
+            <Text margin="20px">Because OCT 31 = DEC 25</Text>
+          </Appear>
+          <Appear>
+            <Image src={images.brain} />
+          </Appear>
+        </Slide>
+        <Slide bgColor="tertiary" transitionIn={['zoom']} transitionOut={['fade']}>
+          <Heading size={2} caps lineHeight={1} textColor="primary">
+            Build blazing fast portfolios 🚀
           </Heading>
         </Slide>
         <Slide>
@@ -98,6 +141,17 @@ export default class Presentation extends React.Component {
             <Appear fid="1">
               <ListItem>I'm not an expert</ListItem>
             </Appear>
+          </List>
+        </Slide>
+        <Slide>
+          <Image src={images.notExpert} width="600" />
+        </Slide>
+        <Slide>
+          <Heading size={6} textColor="tertiary" caps>
+            Why don't we do it?
+          </Heading>
+          <List>
+            <ListItem>I'm not an expert</ListItem>
             <Appear fid="2">
               <ListItem>Someone already wrote about it</ListItem>
             </Appear>
@@ -156,6 +210,32 @@ export default class Presentation extends React.Component {
           <Image src={images.deploy} />
         </Slide>
         <Slide bgImage={images.arch} />
+        <Slide>
+          <Text>Lets get into action!</Text>
+          <Image src={images.goodWork} />
+        </Slide>
+        <Slide>
+          <Heading size={2} fit caps lineHeight={1} textColor="tertiary">
+            How do you comfort a JavaScript bug?
+          </Heading>
+          <Appear>
+            <Text margin="20px">You console it!</Text>
+          </Appear>
+          <Appear>
+            <Image src={images.console} />
+          </Appear>
+          <Appear>
+            <Text textSize="1rem" margin="40px 0 0 0">
+              https://github.com/shrutikapoor08/devjoke
+            </Text>
+          </Appear>
+        </Slide>
+        <Slide>
+          <Heading size={2} fit caps lineHeight={1} textColor="tertiary">
+            Thankyou
+          </Heading>
+          <Text>@aravindballa</Text>
+        </Slide>
       </Deck>
     );
   }
