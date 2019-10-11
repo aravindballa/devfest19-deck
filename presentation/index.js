@@ -202,6 +202,9 @@ export default class Presentation extends React.Component {
             Data Agnostic
           </Heading>
           <Image src={images.dataAg} />
+          <Appear>
+            <Text>🚀</Text>
+          </Appear>
         </Slide>
         <Slide>
           <Heading size={1} lineHeight={1} textColor="secondary">
