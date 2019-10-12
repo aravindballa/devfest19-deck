@@ -72,7 +72,11 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Deck transition={['fade']} transitionDuration={500} theme={theme}>
-        <Slide></Slide>
+        <Slide>
+          <Text textFont="monospace" textColor="#444" textSize="2rem">
+            aravindballa.com/devfest
+          </Text>
+        </Slide>
         <Slide transitionIn={['zoom']} transitionOut={['fade']} bgColor="primary">
           <Text>Hi, I'm</Text>
           <Heading size={1} fit caps lineHeight={1} textColor="tertiary">
@@ -85,9 +89,6 @@ export default class Presentation extends React.Component {
             textColor="#444"
             textSize="1.5rem"
           >{`{twitter|github}.com/aravindballa`}</Text>
-        </Slide>
-        <Slide transition={['fade']}>
-          <Image src={images.gitBlame} width={500} />
         </Slide>
         {/* Dev jokes */}
         <Slide>
@@ -237,7 +238,7 @@ export default class Presentation extends React.Component {
           <Heading size={2} fit caps lineHeight={1} textColor="tertiary">
             Thankyou
           </Heading>
-          <Text>@aravindballa</Text>
+          <Text>@aravindballa 🕺🏻</Text>
         </Slide>
       </Deck>
     );
